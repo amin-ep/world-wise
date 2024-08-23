@@ -1,16 +1,16 @@
-import styles from "./City.module.css";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { useCities } from "../contexts/CitiesContext";
-import Spinner from "./Spinner";
-import BackButton from "./BackButton";
+import styles from './City.module.css';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useCities } from '../contexts/CitiesContext';
+import Spinner from './Spinner';
+import BackButton from './BackButton';
 
-const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
+const formatDate = date =>
+  new Intl.DateTimeFormat('en', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    weekday: 'long',
   }).format(new Date(date));
 
 function City() {
@@ -19,7 +19,7 @@ function City() {
 
   useEffect(() => {
     getCity(id);
-  }, [id]);
+  }, [id, getCity]);
 
   const { cityName, emoji, date, notes } = currentCity;
 
